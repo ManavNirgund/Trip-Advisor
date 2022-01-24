@@ -4,7 +4,7 @@ import { CssBaseline, Grid } from '@material-ui/core';
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Map from './components/Map/Map';
-import { travelAdvisorData, openWeatherData } from './api'
+import { travelAdvisorData, openopenWeatherData } from './api'
 
 const App = () => {
 
@@ -16,7 +16,7 @@ const App = () => {
   const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredPlaces, setFilteredPlaces] = useState([]);
-  const [weatherData, setWeatherData] = useState([]);
+  const [openWeatherData, setOpenWeatherData] = useState([]);
 
   useEffect(() => {
     const filteredPlaces = places.filter((place) => place.rating > rating)
@@ -34,8 +34,9 @@ const App = () => {
     if(bounds.sw && bounds.ne) {
     setIsLoading(true);
 
-    openWeatherData(coordinates.lat, coordinates.lng)
-      .then((data) => setWeatherData(data));
+    openopenWeatherData(coordinates.lat, coordinates.lng)
+      .then((data) => setOpenWeatherData(data));
+
 
     travelAdvisorData(type, bounds.sw, bounds.ne)
       .then((data) => {
@@ -72,6 +73,7 @@ const App = () => {
             coordinates = {coordinates}
             places={ filteredPlaces.length ? filteredPlaces : places }
             setChildClicked = {setChildClicked}
+            openWeatherData = { openWeatherData }
           />
         </Grid>
       </Grid>
