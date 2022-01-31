@@ -1,0 +1,11 @@
+runtime: node16.3.2
+handlers:
+  # Catch all static files with url ending with a file extension
+  - url: /(.*\..+)$
+    static_files: build/\l
+    upload: build/(.*\..+)$
+
+  # Catch  all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
