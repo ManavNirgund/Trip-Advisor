@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Paper, Typography, useMediaQuery } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
@@ -15,7 +15,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
   return (
     <div className = {styles.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys = {{ key: process.env. REACT_APP_GOOGLE_MAPS_API_KEY}}
+        bootstrapURLKeys = {{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
         defaultCenter = {coordinates}
         center = {coordinates}
         defaultZoom = {14}
